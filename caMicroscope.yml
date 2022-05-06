@@ -9,8 +9,6 @@ services:
       options:
           max-file: "5"
           max-size: "10m"
-    volumes:
-      - ./db:/data/db
   idxMongo:
     image: mongo:4.2-bionic
     container_name: ca-idx
@@ -41,11 +39,13 @@ services:
           max-file: "5"
           max-size: "10m"
     volumes:
-      - /labs/sharmalab/HTT_IMGS/:/images/
+      - ./images/:/images/
       - ./config/login.html:/src/static/login.html
-      - ./jwt_keys/:/src/keys/
+      - ./keys/:/src/keys/
       - ./config/routes.json:/src/routes.json
       - ./config/contentSecurityPolicy.json:/src/contentSecurityPolicy.json
+      - ../caMicroscope/:/src/camicroscope/
+      - ../Caracal/:/src/
     environment:
       JWK_URL: "https://www.googleapis.com/oauth2/v3/certs"
       IIP_PATH: "http://ca-iip:8080/fcgi-bin/iipsrv.fcgi"
@@ -61,7 +61,7 @@ services:
           max-size: "10m"
     restart: always
     volumes:
-      - /labs/sharmalab/HTT_IMGS/:/images/
+      - ./images/:/images/
   loader:
     build: "https://github.com/camicroscope/SlideLoader.git#v3.9.8"
     container_name: ca-load
@@ -71,4 +71,4 @@ services:
           max-file: "5"
           max-size: "10m"
     volumes:
-      - /labs/sharmalab/HTT_IMGS/:/images/
+      - ./images/:/images/

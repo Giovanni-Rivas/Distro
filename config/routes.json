@@ -282,6 +282,46 @@
     ]
   },
   {
+    "route": "/data/testSandbox/post",
+    "method": "post",
+    "handlers": [
+      { "function": "permissionHandler", "args": [["Admin", "Editor"]] },
+      { "function": "mongoAdd", "args": ["camic", "testSandbox"] }
+    ]
+  },
+  {
+    "route": "/data/testSandbox/dup",
+    "method": "get",
+    "handlers": [
+      { "function": "permissionHandler", "args": [["Admin", "Editor"]] },
+      { "function": "mongoDuplicateSlide", "args": ["camic", "slide"] }
+    ]
+  },
+  {
+    "route": "/data/testSandbox/dupROIs",
+    "method": "get",
+    "handlers": [
+      { "function": "permissionHandler", "args": [["Admin", "Editor"]] },
+      { "function": "mongoDuplicateROIs", "args": ["camic", "labeling"] }
+    ]
+  },
+  {
+    "route": "/data/collection/addBatch",
+    "method": "post",
+    "handlers": [
+      { "function": "permissionHandler", "args": [["Admin", "Editor"]] },
+      { "function": "mongoAdd", "args": ["camic", "collection"] }
+    ]
+  },
+  {
+    "route": "/data/testSandbox/test",
+    "method": "post",
+    "handlers": [
+      { "function": "permissionHandler", "args": [["Admin", "Editor"]] },
+      { "function": "mongoAdd", "args": ["camic", "testSandbox"] }
+    ]
+  },
+  {
     "route": "/data/LabelingAnnotation/update",
     "method": "post",
     "handlers": [
