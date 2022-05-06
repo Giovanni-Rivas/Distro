@@ -39,10 +39,7 @@
   {
     "method": "use",
     "route": "/img/IIP/raw/",
-    "handlers": [
-      { "function": "loginHandler", "args": [] },
-      { "function": "iipHandler", "args": [] }
-    ]
+    "handlers": [{ "function": "iipHandler", "args": [] }]
   },
 
   {
@@ -577,6 +574,11 @@
     "route": "/data/User/wcido",
     "method": "get",
     "handlers": [{ "function": "wcido", "args": [] }]
+  },
+  {
+    "route": "/data/Email/registration",
+    "method": "get",
+    "handlers": [{ "function": "sendRegistrationEmail", "args": [] }]
   },
   {
     "route": "/workbench/uploadDataset",
